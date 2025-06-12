@@ -9,7 +9,7 @@ import { fetchImages } from './js/pixabay-api';
 import { renderGallery } from './js/render-functions';
 
 const form = document.querySelector('.form');
-const list = document.querySelector('.list');
+const gallery = document.querySelector('.gallery');
 
 const loader = document.querySelector('.loader');
 

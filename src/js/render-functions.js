@@ -31,10 +31,10 @@ export function createGallery(images) {
 }
 
 export function renderGallery(images) {
-  const list = document.querySelector('.list');
-  list.innerHTML = createGallery(images);
+  const gallery = document.querySelector('.gallery');
+  gallery.innerHTML = createGallery(images);
 
-  const lightbox = new SimpleLightbox('.list a', {
+  const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
   });
