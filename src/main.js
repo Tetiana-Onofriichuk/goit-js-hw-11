@@ -6,21 +6,12 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { fetchImages } from './js/pixabay-api';
-import { renderGallery } from './js/render-functions';
+import { renderGallery, showLoader, hideLoader } from './js/render-functions';
 
 const form = document.querySelector('.form');
 const gallery = document.querySelector('.gallery');
 
-const loader = document.querySelector('.loader');
-
 form.addEventListener('submit', handleSubmit);
-export function showLoader() {
-  loader.style.display = 'block';
-}
-
-export function hideLoader() {
-  loader.style.display = 'none';
-}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -40,7 +31,7 @@ function handleSubmit(event) {
       const images = response.data.hits;
 
       if (images.length === 0) {
-        list.innerHTML = '';
+        gallery.innerHTML = '';
         iziToast.info({
           message: 'Зображень не знайдено.',
           position: 'topRight',
